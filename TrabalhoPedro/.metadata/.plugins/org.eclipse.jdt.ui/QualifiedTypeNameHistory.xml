@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="java.sql.Statement"/>
+<fullyQualifiedTypeName name="java.sql.DriverManager"/>
+<fullyQualifiedTypeName name="java.sql.SQLNonTransientException"/>
+<fullyQualifiedTypeName name="java.sql.SQLException"/>
+<fullyQualifiedTypeName name="view.CadastroLivro"/>
+<fullyQualifiedTypeName name="javax.swing.plaf.DesktopPaneUI"/>
+<fullyQualifiedTypeName name="model.dao.FuncionarioDAO"/>
+<fullyQualifiedTypeName name="view.TelaPrincipal"/>
+<fullyQualifiedTypeName name="view.CadastroFuncionario"/>
+<fullyQualifiedTypeName name="view.Login"/>
+<fullyQualifiedTypeName name="view.CadastroFornecedor"/>
+<fullyQualifiedTypeName name="model.dao.FornecedorDAO"/>
+<fullyQualifiedTypeName name="view.CadastroLeitor"/>
+<fullyQualifiedTypeName name="java.sql.Connection"/>
+<fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
+<fullyQualifiedTypeName name="connection.ConnectionFactory"/>
+<fullyQualifiedTypeName name="model.bean.Leitor"/>
+<fullyQualifiedTypeName name="model.dao.LeitorDAO"/>
+<fullyQualifiedTypeName name="view.ConsultaLeitor"/>
+<fullyQualifiedTypeName name="javax.swing.table.DefaultTableModel"/>
+<fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
+<fullyQualifiedTypeName name="view.ConsultaFornecedor"/>
+<fullyQualifiedTypeName name="view.ConsultaLivro"/>
+<fullyQualifiedTypeName name="view.ConsultaFuncionario"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.sql.ResultSet"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="model.bean.Fornecedor"/>
+<fullyQualifiedTypeName name="model.bean.Funcionario"/>
+</qualifiedTypeNameHistroy>

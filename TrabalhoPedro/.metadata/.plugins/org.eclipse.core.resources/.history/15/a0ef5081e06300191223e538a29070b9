@@ -1,0 +1,137 @@
+package view;
+
+import java.awt.EventQueue;
+
+import javax.swing.JInternalFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+
+import model.bean.Fornecedor;
+import model.dao.FornecedorDAO;
+
+import javax.swing.JPanel;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class CadastroFornecedor extends JInternalFrame {
+	private JTextField txtNome;
+	private JTextField txtTipoInst;
+	private JTextField txtEndereco;
+	private JTextField txtTelefone;
+	private JTextField txtUrl;
+	private JTextField txtEmail;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					CadastroFornecedor frame = new CadastroFornecedor();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public CadastroFornecedor() {
+		setTitle("Fornecedor");
+		setBounds(100, 100, 450, 474);
+		getContentPane().setLayout(null);
+		
+		JPanel panel = new JPanel();
+		panel.setBounds(0, 0, 434, 455);
+		getContentPane().add(panel);
+		panel.setLayout(null);
+		
+		JLabel lblNome = new JLabel("Nome");
+		lblNome.setBounds(10, 8, 54, 14);
+		panel.add(lblNome);
+		
+		txtNome = new JTextField();
+		txtNome.setBounds(20, 30, 223, 20);
+		panel.add(txtNome);
+		txtNome.setColumns(10);
+		
+		JLabel lblTipoDeInstituio = new JLabel("Tipo de Institui\u00E7\u00E3o");
+		lblTipoDeInstituio.setBounds(10, 75, 149, 14);
+		panel.add(lblTipoDeInstituio);
+		
+		txtTipoInst = new JTextField();
+		txtTipoInst.setBounds(20, 100, 223, 20);
+		panel.add(txtTipoInst);
+		txtTipoInst.setColumns(10);
+		
+		JLabel lblEndereo = new JLabel("Endere\u00E7o");
+		lblEndereo.setBounds(10, 147, 76, 14);
+		panel.add(lblEndereo);
+		
+		txtEndereco = new JTextField();
+		txtEndereco.setBounds(20, 172, 223, 20);
+		panel.add(txtEndereco);
+		txtEndereco.setColumns(10);
+		
+		JLabel lblTelefone = new JLabel("Telefone");
+		lblTelefone.setBounds(10, 216, 76, 14);
+		panel.add(lblTelefone);
+		
+		txtTelefone = new JTextField();
+		txtTelefone.setBounds(20, 241, 223, 20);
+		panel.add(txtTelefone);
+		txtTelefone.setColumns(10);
+		
+		JLabel lblNewLabel = new JLabel("URL");
+		lblNewLabel.setBounds(10, 278, 54, 14);
+		panel.add(lblNewLabel);
+		
+		txtUrl = new JTextField();
+		txtUrl.setBounds(20, 303, 223, 20);
+		panel.add(txtUrl);
+		txtUrl.setColumns(10);
+		
+		JButton btnOk = new JButton("OK");
+		btnOk.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Fornecedor f = new Fornecedor();
+				FornecedorDAO dao = new FornecedorDAO();
+				
+				f.setNome(txtNome.getText());
+				f.setTipoDeInstituicao(txtTipoInst.getText());
+				f.setEndereco(txtEndereco.getText());
+				f.setTelefone(txtTelefone.getText());
+				f.setEmail(txtEmail.getText());
+				
+				dao.create(f);
+				
+			}
+		});
+		btnOk.setBounds(90, 410, 89, 23);
+		panel.add(btnOk);
+		
+		JButton btnCancelar = new JButton("Cancelar");
+		btnCancelar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
+		btnCancelar.setBounds(252, 410, 89, 23);
+		panel.add(btnCancelar);
+		
+		JLabel lblEmail = new JLabel("Email");
+		lblEmail.setBounds(10, 343, 46, 14);
+		panel.add(lblEmail);
+		
+		txtEmail = new JTextField();
+		txtEmail.setBounds(20, 368, 223, 20);
+		panel.add(txtEmail);
+		txtEmail.setColumns(10);
+
+	}
+}

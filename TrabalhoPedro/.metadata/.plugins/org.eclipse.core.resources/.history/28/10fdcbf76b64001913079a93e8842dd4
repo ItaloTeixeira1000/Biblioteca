@@ -1,0 +1,167 @@
+package view;
+
+import java.awt.EventQueue;
+
+import javax.swing.JInternalFrame;
+import javax.swing.JPanel;
+import java.awt.Dimension;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.JButton;
+import javax.swing.table.TableModel;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.JScrollPane;
+
+public class ConsultaLeitor extends JInternalFrame {
+	private JTextField txtNome;
+	private JTextField txtSobrenome;
+	private JTextField txtCpf;
+	private JTextField txtSexo;
+	private JTextField txtData;
+	private JTextField textField;
+	private JTable table;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					ConsultaLeitor frame = new ConsultaLeitor();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public ConsultaLeitor() {
+		setClosable(true);
+		setTitle("Consulta de Leitores Cadastrados");
+		setBounds(100, 100, 885, 495);
+		getContentPane().setLayout(null);
+		
+		JPanel panel = new JPanel();
+		panel.setBounds(0, 0, 869, 169);
+		getContentPane().add(panel);
+		panel.setLayout(null);
+		
+		JLabel lblNome = new JLabel("Nome");
+		lblNome.setBounds(10, 11, 46, 14);
+		panel.add(lblNome);
+		
+		txtNome = new JTextField();
+		txtNome.setBounds(20, 36, 163, 20);
+		panel.add(txtNome);
+		txtNome.setColumns(10);
+		
+		JLabel lblSobrenome = new JLabel("Sobrenome");
+		lblSobrenome.setBounds(10, 67, 91, 14);
+		panel.add(lblSobrenome);
+		
+		txtSobrenome = new JTextField();
+		txtSobrenome.setBounds(20, 92, 192, 20);
+		panel.add(txtSobrenome);
+		txtSobrenome.setColumns(10);
+		
+		JLabel lblCpf = new JLabel("CPF");
+		lblCpf.setBounds(314, 11, 46, 14);
+		panel.add(lblCpf);
+		
+		txtCpf = new JTextField();
+		txtCpf.setBounds(324, 36, 163, 20);
+		panel.add(txtCpf);
+		txtCpf.setColumns(10);
+		
+		JLabel lblSexo = new JLabel("Sexo");
+		lblSexo.setBounds(314, 67, 46, 14);
+		panel.add(lblSexo);
+		
+		txtSexo = new JTextField();
+		txtSexo.setBounds(324, 92, 86, 20);
+		panel.add(txtSexo);
+		txtSexo.setColumns(10);
+		
+		JLabel lblDataDeNascimento = new JLabel("Data de Nascimento");
+		lblDataDeNascimento.setBounds(605, 11, 134, 14);
+		panel.add(lblDataDeNascimento);
+		
+		txtData = new JTextField();
+		txtData.setBounds(615, 36, 139, 20);
+		panel.add(txtData);
+		txtData.setColumns(10);
+		
+		JLabel lblEmail = new JLabel("Email");
+		lblEmail.setBounds(605, 67, 46, 14);
+		panel.add(lblEmail);
+		
+		textField = new JTextField();
+		textField.setBounds(615, 92, 217, 20);
+		panel.add(textField);
+		textField.setColumns(10);
+		
+		JButton btnAtualizar = new JButton("Atualizar");
+		btnAtualizar.setBounds(387, 135, 89, 23);
+		panel.add(btnAtualizar);
+		
+		JButton btnDeletar = new JButton("Deletar");
+		btnDeletar.setBounds(698, 135, 89, 23);
+		panel.add(btnDeletar);
+		
+		JButton btnCadastrar = new JButton("Cadastrar");
+		btnCadastrar.setBounds(83, 135, 89, 23);
+		panel.add(btnCadastrar);
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBounds(0, 168, 869, 292);
+		getContentPane().add(panel_1);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		GroupLayout gl_panel_1 = new GroupLayout(panel_1);
+		gl_panel_1.setHorizontalGroup(
+			gl_panel_1.createParallelGroup(Alignment.LEADING)
+				.addGroup(Alignment.TRAILING, gl_panel_1.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 849, Short.MAX_VALUE)
+					.addContainerGap())
+		);
+		gl_panel_1.setVerticalGroup(
+			gl_panel_1.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel_1.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
+					.addContainerGap())
+		);
+		
+		table = new JTable();
+		table.setModel(new DefaultTableModel(
+			new Object[][] {
+			},
+			new String[] {
+				"Nome", "Sobrenome", "CPF", "Sexo", "Email", "Data de Nascimento"
+			}
+		));
+		table.getColumnModel().getColumn(0).setPreferredWidth(115);
+		table.getColumnModel().getColumn(1).setPreferredWidth(132);
+		table.getColumnModel().getColumn(2).setPreferredWidth(86);
+		table.getColumnModel().getColumn(4).setPreferredWidth(105);
+		table.getColumnModel().getColumn(5).setPreferredWidth(116);
+		scrollPane.setViewportView(table);
+		panel_1.setLayout(gl_panel_1);
+
+	}
+	public TableModel getTableModel() {
+		return table.getModel();
+	}
+	public void setTableModel(TableModel model) {
+		table.setModel(model);
+	}
+}

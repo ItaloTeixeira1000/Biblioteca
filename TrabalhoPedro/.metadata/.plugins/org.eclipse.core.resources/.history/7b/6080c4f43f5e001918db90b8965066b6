@@ -1,0 +1,42 @@
+package model.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import javax.swing.JOptionPane;
+
+import connection.ConnectionFactory;
+import model.bean.Funcionario;
+
+public class FucionarioDAO {
+	
+	public void create(Funcionario f) {
+		Connection con = ConnectionFactory.getConnection();
+		PreparedStatement stmt = null;
+		
+		
+		try {
+			stmt = con.prepareStatement("INSERT INTO funcionario(nome,sobrenome,sexo,dataDenascimento,cpf,telefone,acesso,usuario,senha) VALUES (?,?,?,?,?,?,?,?,?)");
+			stmt.setString(1, f.getNome());
+			stmt.setString(2, f.getSobrenome());
+			stmt.setString(3, f.getSexo());
+			stmt.setString(4, f.getDataDeNascimento());
+			stmt.setString(5, f.getCpf());
+			stmt.setString(6, f.getTelefone());
+			stmt.setString(7, f.getAcesso());
+			stmt.setString(8, f.getUsuario());
+			stmt.setString(9, f.getSenha());
+			
+			stmt.executeUpdate();
+			JOptionPane.showMessageDialog(null, "Cadastrado com sucesso!");
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			JOptionPane.showMessageDialog(null, " Erro no cadastro! " + e);
+		}finally {
+			ConnectionFactory.closeConnection(con, stmt);
+		}
+	}
+}

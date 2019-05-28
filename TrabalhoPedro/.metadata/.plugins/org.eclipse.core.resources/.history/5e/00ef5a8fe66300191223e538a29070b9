@@ -1,0 +1,125 @@
+package view;
+
+import java.awt.EventQueue;
+
+import javax.swing.JInternalFrame;
+import javax.swing.JPanel;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+
+import model.bean.Leitor;
+import model.dao.LeitorDAO;
+
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class CadastroLeitor extends JInternalFrame {
+	private JTextField txtNome;
+	private JTextField txtSobrenome;
+	private JTextField txtCpf;
+	private JTextField txtSexo;
+	private JTextField txtData;
+	private JTextField txtEmail;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					CadastroLeitor frame = new CadastroLeitor();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public CadastroLeitor() {
+		setBounds(100, 100, 450, 510);
+		getContentPane().setLayout(null);
+		
+		JPanel panel = new JPanel();
+		panel.setBounds(0, 0, 434, 480);
+		getContentPane().add(panel);
+		panel.setLayout(null);
+		
+		JLabel lblNome = new JLabel("Nome");
+		lblNome.setBounds(10, 11, 55, 14);
+		panel.add(lblNome);
+		
+		txtNome = new JTextField();
+		txtNome.setBounds(20, 36, 273, 20);
+		panel.add(txtNome);
+		txtNome.setColumns(10);
+		
+		JLabel lblSobrenome = new JLabel("Sobrenome");
+		lblSobrenome.setBounds(10, 82, 76, 14);
+		panel.add(lblSobrenome);
+		
+		txtSobrenome = new JTextField();
+		txtSobrenome.setBounds(20, 107, 273, 20);
+		panel.add(txtSobrenome);
+		txtSobrenome.setColumns(10);
+		
+		JLabel lblCpf = new JLabel("CPF");
+		lblCpf.setBounds(10, 157, 46, 14);
+		panel.add(lblCpf);
+		
+		txtCpf = new JTextField();
+		txtCpf.setBounds(20, 182, 273, 20);
+		panel.add(txtCpf);
+		txtCpf.setColumns(10);
+		
+		JLabel lblSexo = new JLabel("Sexo");
+		lblSexo.setBounds(10, 230, 46, 14);
+		panel.add(lblSexo);
+		
+		txtSexo = new JTextField();
+		txtSexo.setBounds(20, 255, 273, 20);
+		panel.add(txtSexo);
+		txtSexo.setColumns(10);
+		
+		JLabel lblDataDeNascimento = new JLabel("Data de Nascimento");
+		lblDataDeNascimento.setBounds(10, 303, 113, 14);
+		panel.add(lblDataDeNascimento);
+		
+		txtData = new JTextField();
+		txtData.setBounds(20, 328, 273, 20);
+		panel.add(txtData);
+		txtData.setColumns(10);
+		
+		JLabel lblEmail = new JLabel("Email");
+		lblEmail.setBounds(10, 371, 55, 14);
+		panel.add(lblEmail);
+		
+		txtEmail = new JTextField();
+		txtEmail.setBounds(20, 396, 273, 20);
+		panel.add(txtEmail);
+		txtEmail.setColumns(10);
+		
+		JButton btnOk = new JButton("OK");
+		btnOk.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Leitor l = new Leitor();
+				LeitorDAO dao = new LeitorDAO();
+				
+				l.setNome(txtNome.getText());
+				
+			}
+		});
+		btnOk.setBounds(81, 446, 89, 23);
+		panel.add(btnOk);
+		
+		JButton btnCancelar = new JButton("Cancelar");
+		btnCancelar.setBounds(248, 446, 89, 23);
+		panel.add(btnCancelar);
+
+	}
+}

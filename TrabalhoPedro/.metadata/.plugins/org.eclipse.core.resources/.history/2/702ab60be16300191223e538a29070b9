@@ -1,0 +1,39 @@
+package model.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import javax.swing.JOptionPane;
+
+import connection.ConnectionFactory;
+import model.bean.Fornecedor;
+
+public class FornecedorDAO {
+	
+	public void create(Fornecedor f) {
+		Connection con = ConnectionFactory.getConnection();
+		PreparedStatement stmt = null;
+		try {
+			stmt = con.prepareStatement("INSERT INTO fornecedor(nome, tipoDeInstituicao, endereco, telefone, email, url) VALUES(?,?,?,?,?,?)");
+			stmt.setString(1, f.getNome());
+			stmt.setString(2, f.getTipoDeInstituicao());
+			stmt.setString(3, f.getEndereco());
+			stmt.setString(4, f.getTelefone());
+			stmt.setString(5, f.getEmail());
+			stmt.setString(6, f.getUrl());
+			
+			stmt.executeUpdate();
+			
+			JOptionPane.showMessageDialog(null, "Cadastrado com sucesso");
+			
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			JOptionPane.showMessageDialog(null, "Erro ao salvar " + e);
+		}finally {
+			ConnectionFactory.closeConnection(con, stmt);
+		}
+	}
+}

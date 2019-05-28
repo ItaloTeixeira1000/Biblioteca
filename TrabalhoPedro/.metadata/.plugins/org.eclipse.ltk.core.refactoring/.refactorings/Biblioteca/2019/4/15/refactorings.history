@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;model.dao.FucionarioDAO&apos; to &apos;FuncionarioDAO&apos;&#x0D;&#x0A;- Original project: &apos;Biblioteca&apos;&#x0D;&#x0A;- Original element: &apos;model.dao.FucionarioDAO&apos;&#x0D;&#x0A;- Renamed element: &apos;model.dao.FuncionarioDAO&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;FucionarioDAO&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;model.dao{FucionarioDAO.java[FucionarioDAO" matchStrategy="1" name="FuncionarioDAO" qualified="false" references="true" similarDeclarations="false" stamp="1555196439602" textual="false" version="1.0"/>
+</session>

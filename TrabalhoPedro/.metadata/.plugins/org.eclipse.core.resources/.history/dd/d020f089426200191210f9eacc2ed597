@@ -1,0 +1,179 @@
+package view;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+
+import model.bean.Funcionario;
+import model.dao.FuncionarioDAO;
+
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class CadastroFuncionario extends JFrame {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private JPanel contentPane;
+	private JTextField txtNome;
+	private JTextField txtSobrenome;
+	private JTextField txtSexo;
+	private JTextField txtDataNasc;
+	private JTextField txtCpf;
+	private JTextField txtTel;
+	private JTextField txtAcesso;
+	private JTextField txtUsuario;
+	private JTextField txtSenha;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					CadastroFuncionario frame = new CadastroFuncionario();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public CadastroFuncionario() {
+		setTitle("Cadastro");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 485, 422);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel lblNome = new JLabel("Nome");
+		lblNome.setBounds(10, 11, 46, 14);
+		contentPane.add(lblNome);
+		
+		txtNome = new JTextField();
+		txtNome.setBounds(20, 36, 167, 20);
+		contentPane.add(txtNome);
+		txtNome.setColumns(10);
+		
+		JLabel lblSobrenome = new JLabel("Sobrenome");
+		lblSobrenome.setBounds(256, 11, 95, 14);
+		contentPane.add(lblSobrenome);
+		
+		txtSobrenome = new JTextField();
+		txtSobrenome.setBounds(266, 36, 177, 20);
+		contentPane.add(txtSobrenome);
+		txtSobrenome.setColumns(10);
+		
+		JLabel lblSexo = new JLabel("Sexo");
+		lblSexo.setBounds(10, 77, 46, 14);
+		contentPane.add(lblSexo);
+		
+		txtSexo = new JTextField();
+		txtSexo.setBounds(20, 102, 167, 20);
+		contentPane.add(txtSexo);
+		txtSexo.setColumns(10);
+		
+		JLabel lblNewLabel = new JLabel("Data de Nascimento");
+		lblNewLabel.setBounds(256, 77, 110, 14);
+		contentPane.add(lblNewLabel);
+		
+		txtDataNasc = new JTextField();
+		txtDataNasc.setBounds(266, 102, 177, 20);
+		contentPane.add(txtDataNasc);
+		txtDataNasc.setColumns(10);
+		
+		JLabel lblCpf = new JLabel("CPF");
+		lblCpf.setBounds(10, 144, 46, 14);
+		contentPane.add(lblCpf);
+		
+		txtCpf = new JTextField();
+		txtCpf.setBounds(20, 169, 167, 20);
+		contentPane.add(txtCpf);
+		txtCpf.setColumns(10);
+		
+		JLabel lblTelefone = new JLabel("Telefone");
+		lblTelefone.setBounds(256, 144, 61, 14);
+		contentPane.add(lblTelefone);
+		
+		txtTel = new JTextField();
+		txtTel.setBounds(265, 169, 178, 20);
+		contentPane.add(txtTel);
+		txtTel.setColumns(10);
+		
+		JLabel lblAcesso = new JLabel("Acesso");
+		lblAcesso.setBounds(10, 210, 46, 14);
+		contentPane.add(lblAcesso);
+		
+		txtAcesso = new JTextField();
+		txtAcesso.setBounds(20, 235, 167, 20);
+		contentPane.add(txtAcesso);
+		txtAcesso.setColumns(10);
+		
+		JLabel lblUsuario = new JLabel("Usuario");
+		lblUsuario.setBounds(256, 210, 46, 14);
+		contentPane.add(lblUsuario);
+		
+		txtUsuario = new JTextField();
+		txtUsuario.setBounds(265, 235, 178, 20);
+		contentPane.add(txtUsuario);
+		txtUsuario.setColumns(10);
+		
+		JLabel lblSenha = new JLabel("Senha");
+		lblSenha.setBounds(10, 276, 46, 14);
+		contentPane.add(lblSenha);
+		
+		txtSenha = new JTextField();
+		txtSenha.setBounds(20, 301, 167, 20);
+		contentPane.add(txtSenha);
+		txtSenha.setColumns(10);
+		
+		JButton btnCadastrar = new JButton("OK");
+		btnCadastrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Funcionario f = new Funcionario();
+				FuncionarioDAO dao = new FuncionarioDAO();
+				f.setNome(txtNome.getText());
+				f.setSobrenome(txtSobrenome.getText());
+				f.setSexo(txtSexo.getText());
+				f.setDataDeNascimento(txtDataNasc.getText());
+				f.setCpf(txtCpf.getText());
+				f.setTelefone(txtTel.getText());
+				f.setAcesso(txtAcesso.getText());
+				f.setUsuario(txtUsuario.getText());
+				f.setSenha(txtSenha.getText());
+				
+				txtNome.setText("");
+				txtSobrenome.setText("");
+				txtSexo.setText("");
+				txtDataNasc.setText("");
+				txtCpf.setText("");
+				txtTel.setText("");
+				txtAcesso.setText("");
+				txtUsuario.setText("");
+				txtSenha.setText("");
+				
+				dao.create(f);
+			}
+		});
+		btnCadastrar.setBounds(98, 349, 89, 23);
+		contentPane.add(btnCadastrar);
+		
+		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.setBounds(266, 349, 89, 23);
+		contentPane.add(btnVoltar);
+	}
+}

@@ -1,0 +1,101 @@
+package view;
+
+import java.awt.EventQueue;
+
+import javax.swing.JInternalFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.JPanel;
+import javax.swing.JButton;
+
+public class CadastroFornecedor extends JInternalFrame {
+	private JTextField textField;
+	private JTextField textField_1;
+	private JTextField textField_2;
+	private JTextField textField_3;
+	private JTextField textField_4;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					CadastroFornecedor frame = new CadastroFornecedor();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public CadastroFornecedor() {
+		setTitle("Fornecedor");
+		setBounds(100, 100, 450, 438);
+		getContentPane().setLayout(null);
+		
+		JPanel panel = new JPanel();
+		panel.setBounds(0, 0, 434, 408);
+		getContentPane().add(panel);
+		panel.setLayout(null);
+		
+		JLabel lblNome = new JLabel("Nome");
+		lblNome.setBounds(10, 8, 54, 14);
+		panel.add(lblNome);
+		
+		textField = new JTextField();
+		textField.setBounds(20, 30, 223, 20);
+		panel.add(textField);
+		textField.setColumns(10);
+		
+		JLabel lblTipoDeInstituio = new JLabel("Tipo de Institui\u00E7\u00E3o");
+		lblTipoDeInstituio.setBounds(10, 75, 149, 14);
+		panel.add(lblTipoDeInstituio);
+		
+		textField_1 = new JTextField();
+		textField_1.setBounds(20, 100, 223, 20);
+		panel.add(textField_1);
+		textField_1.setColumns(10);
+		
+		JLabel lblEndereo = new JLabel("Endere\u00E7o");
+		lblEndereo.setBounds(10, 147, 76, 14);
+		panel.add(lblEndereo);
+		
+		textField_2 = new JTextField();
+		textField_2.setBounds(20, 172, 223, 20);
+		panel.add(textField_2);
+		textField_2.setColumns(10);
+		
+		JLabel lblTelefone = new JLabel("Telefone");
+		lblTelefone.setBounds(10, 216, 76, 14);
+		panel.add(lblTelefone);
+		
+		textField_3 = new JTextField();
+		textField_3.setBounds(20, 241, 223, 20);
+		panel.add(textField_3);
+		textField_3.setColumns(10);
+		
+		JLabel lblNewLabel = new JLabel("URL");
+		lblNewLabel.setBounds(10, 278, 54, 14);
+		panel.add(lblNewLabel);
+		
+		textField_4 = new JTextField();
+		textField_4.setBounds(20, 303, 223, 20);
+		panel.add(textField_4);
+		textField_4.setColumns(10);
+		
+		JButton btnOk = new JButton("OK");
+		btnOk.setBounds(70, 357, 89, 23);
+		panel.add(btnOk);
+		
+		JButton btnCancelar = new JButton("Cancelar");
+		btnCancelar.setBounds(232, 357, 89, 23);
+		panel.add(btnCancelar);
+
+	}
+}

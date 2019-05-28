@@ -1,0 +1,171 @@
+package view;
+
+import java.awt.EventQueue;
+
+import javax.swing.JInternalFrame;
+import javax.swing.JScrollPane;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.JTable;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+
+public class ConsultaLivro extends JInternalFrame {
+	private JTable table;
+	private JTextField textField;
+	private JTextField textField_1;
+	private JTextField textField_2;
+	private JTextField textField_3;
+	private JTextField textField_4;
+	private JTextField textField_5;
+	private JTextField textField_6;
+	private JTextField textField_7;
+	private JTextField textField_8;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					ConsultaLivro frame = new ConsultaLivro();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public ConsultaLivro() {
+		setBounds(100, 100, 1394, 486);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		
+		JPanel panel = new JPanel();
+		GroupLayout groupLayout = new GroupLayout(getContentPane());
+		groupLayout.setHorizontalGroup(
+			groupLayout.createParallelGroup(Alignment.LEADING)
+				.addComponent(panel, GroupLayout.PREFERRED_SIZE, 786, Short.MAX_VALUE)
+				.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 1019, Short.MAX_VALUE)
+		);
+		groupLayout.setVerticalGroup(
+			groupLayout.createParallelGroup(Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addComponent(panel, GroupLayout.PREFERRED_SIZE, 222, GroupLayout.PREFERRED_SIZE)
+					.addGap(8)
+					.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 226, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap())
+		);
+		panel.setLayout(null);
+		
+		JLabel lblTtulo = new JLabel("T\u00EDtulo");
+		lblTtulo.setBounds(10, 11, 46, 14);
+		panel.add(lblTtulo);
+		
+		textField = new JTextField();
+		textField.setBounds(10, 36, 166, 20);
+		panel.add(textField);
+		textField.setColumns(10);
+		
+		JLabel lblAutor = new JLabel("Autor");
+		lblAutor.setBounds(10, 113, 46, 14);
+		panel.add(lblAutor);
+		
+		textField_1 = new JTextField();
+		textField_1.setBounds(20, 138, 156, 20);
+		panel.add(textField_1);
+		textField_1.setColumns(10);
+		
+		JLabel lblIsbn = new JLabel("ISBN");
+		lblIsbn.setBounds(302, 11, 46, 14);
+		panel.add(lblIsbn);
+		
+		textField_2 = new JTextField();
+		textField_2.setBounds(312, 36, 156, 20);
+		panel.add(textField_2);
+		textField_2.setColumns(10);
+		
+		JLabel lblGnero = new JLabel("G\u00EAnero");
+		lblGnero.setBounds(302, 113, 46, 14);
+		panel.add(lblGnero);
+		
+		textField_3 = new JTextField();
+		textField_3.setBounds(312, 138, 156, 20);
+		panel.add(textField_3);
+		textField_3.setColumns(10);
+		
+		JLabel lblDescrio = new JLabel("Descri\u00E7\u00E3o");
+		lblDescrio.setBounds(599, 11, 46, 14);
+		panel.add(lblDescrio);
+		
+		textField_4 = new JTextField();
+		textField_4.setBounds(609, 36, 155, 20);
+		panel.add(textField_4);
+		textField_4.setColumns(10);
+		
+		JLabel lblIdioma = new JLabel("Idioma");
+		lblIdioma.setBounds(599, 113, 46, 14);
+		panel.add(lblIdioma);
+		
+		textField_5 = new JTextField();
+		textField_5.setBounds(609, 138, 155, 20);
+		panel.add(textField_5);
+		textField_5.setColumns(10);
+		
+		JLabel lblEditora = new JLabel("Editora");
+		lblEditora.setBounds(886, 11, 46, 14);
+		panel.add(lblEditora);
+		
+		textField_6 = new JTextField();
+		textField_6.setBounds(896, 36, 166, 20);
+		panel.add(textField_6);
+		textField_6.setColumns(10);
+		
+		JLabel lblDataDePublicao = new JLabel("Data de Publica\u00E7\u00E3o");
+		lblDataDePublicao.setBounds(886, 113, 119, 14);
+		panel.add(lblDataDePublicao);
+		
+		textField_7 = new JTextField();
+		textField_7.setBounds(896, 138, 166, 20);
+		panel.add(textField_7);
+		textField_7.setColumns(10);
+		
+		JLabel lblrea = new JLabel("\u00C1rea");
+		lblrea.setBounds(1164, 11, 46, 14);
+		panel.add(lblrea);
+		
+		textField_8 = new JTextField();
+		textField_8.setBounds(1174, 36, 156, 20);
+		panel.add(textField_8);
+		textField_8.setColumns(10);
+		
+		table = new JTable();
+		table.setModel(new DefaultTableModel(
+			new Object[][] {
+			},
+			new String[] {
+				"T\u00EDtulo", "Autor", "ISBN", "G\u00EAnero", "Descri\u00E7\u00E3o", "Idioma", "Editora", "Data de Publica\u00E7\u00E3o", "\u00C1rea"
+			}
+		) {
+			boolean[] columnEditables = new boolean[] {
+				false, false, false, true, true, true, true, true, true
+			};
+			public boolean isCellEditable(int row, int column) {
+				return columnEditables[column];
+			}
+		});
+		table.getColumnModel().getColumn(4).setPreferredWidth(184);
+		table.getColumnModel().getColumn(6).setPreferredWidth(94);
+		table.getColumnModel().getColumn(7).setPreferredWidth(115);
+		scrollPane.setViewportView(table);
+		getContentPane().setLayout(groupLayout);
+
+	}
+}
